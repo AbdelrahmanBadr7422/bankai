@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #111113;
+  --color-charcoal: #26272b;
+  --color-paper: #f5f2eb;
+  --color-bone: #e7e2d7;
+  --color-muted: #6a6862;
+  --color-blood: #b3201f;
+  --color-blood-dark: #8a1717;
+  --font-display: Georgia, "Times New Roman", serif;
+}
+
+@layer base {
+  body {
+    @apply bg-paper text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-blood);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .page {
+    @apply mx-auto max-w-6xl px-4 py-10;
+  }
+
+  .page-title {
+    @apply font-display text-3xl font-bold tracking-tight;
+  }
+
+  .rule {
+    @apply mt-2 h-1 w-12 bg-blood;
+  }
+
+  .panel {
+    @apply border border-ink/15 bg-white p-5;
+  }
+
+  .btn {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 border px-4 py-2 text-sm font-semibold tracking-wide transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply border-blood bg-blood text-paper hover:bg-blood-dark;
+  }
+
+  .btn-dark {
+    @apply border-ink bg-ink text-paper hover:bg-charcoal;
+  }
+
+  .btn-outline {
+    @apply border-ink/40 bg-transparent text-ink hover:border-ink hover:bg-ink/5;
+  }
+
+  .btn-danger {
+    @apply border-blood bg-transparent text-blood hover:bg-blood hover:text-paper;
+  }
+
+  .btn-sm {
+    @apply px-3 py-1 text-xs;
+  }
+
+  .input {
+    @apply block w-full border border-ink/30 bg-white px-3 py-2 text-sm focus:border-blood;
+  }
+
+  .label {
+    @apply mb-1 block text-xs font-semibold uppercase tracking-wider text-muted;
+  }
+
+  .field-error {
+    @apply mt-1 text-xs text-blood;
+  }
+
+  .alert-error {
+    @apply border border-blood/40 bg-blood/10 px-4 py-3 text-sm text-blood-dark;
+  }
+
+  .badge {
+    @apply inline-block px-2 py-0.5 text-xs font-semibold uppercase tracking-wider;
+  }
+
+  .nav-link {
+    @apply border-b-2 border-transparent py-1 text-sm tracking-wide text-paper/80 hover:text-paper;
+  }
+
+  .nav-link-active {
+    @apply border-blood text-paper;
+  }
+
+  .tab-link {
+    @apply border-b-2 border-transparent pb-1 text-sm font-semibold uppercase tracking-wider text-muted hover:text-ink;
+  }
+
+  .tab-link-active {
+    @apply border-blood text-ink;
+  }
+
+  .data-table {
+    @apply w-full text-left text-sm;
+  }
+
+  .data-table th {
+    @apply border-b-2 border-ink px-3 py-2 text-xs uppercase tracking-wider;
+  }
+
+  .data-table td {
+    @apply border-b border-ink/10 px-3 py-2 align-middle;
+  }
+}
